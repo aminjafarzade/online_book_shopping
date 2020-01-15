@@ -7,10 +7,12 @@ import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { MenuComponent } from './component/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MenuComponent,
 
   ],
   imports: [
