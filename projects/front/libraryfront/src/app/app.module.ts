@@ -10,6 +10,11 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { MenuComponent } from './component/menu/menu.component';
 import { LoginComponent } from './component/login/login.component';
 
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { BasicInterceptorService } from './service/basic-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +24,9 @@ import { LoginComponent } from './component/login/login.component';
   ],
   imports: [
     BrowserModule,
+      AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     AgGridModule.withComponents([]),
     BrowserAnimationsModule,
     DataTablesModule,
@@ -33,7 +41,12 @@ import { LoginComponent } from './component/login/login.component';
 
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,useClass:BasicInterceptorService,multi:true
+      
+    }
+  ],
   bootstrap: [AppComponent]
 
 })

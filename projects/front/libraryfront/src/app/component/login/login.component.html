@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        
+        <div class="col-sm-6">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;" >İstifadəçi Adı :</td>
+                        <td><input class="input"  type="text" [(ngModel)]="username"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Şifrə :</td>
+                        <td><input   class="input" type="password" [(ngModel)]="password"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><button (click)="create()"  class="btn btn-primary">Hesab Yarat</button></td>
+                        <td style="text-align: left;"><button (click)="onLogin()" class="btn btn-success">Daxil Ol</button></td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+        </div>
+        <div class="col-sm-3">
+            
+            </div>
+            <h3 style="color: red;">{{message}}</h3>
+    </div>
+
+
+</div>
