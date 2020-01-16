@@ -13,10 +13,10 @@
             <a *ngIf="canSee()" class="nav-link" href="#">Sifariş Olunan Kitablar</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="canSee()" class="nav-link" href="#">Satışda Olanlar</a>
+            <a class="nav-link" routerLink="/selling-book">Satışda Olanlar</a>
         </li>
     </ul>
-    <ul class="navbar-nav navbar-collapse justify-content-end">
+    <ul class="navbar-nav navbar-collapse justify-content-end" >
         <li><a *ngIf="!canSee()" class="nav-link" routerLink="/login">Giriş</a></li>
         <li><a *ngIf="canSee()" class="nav-link" routerLink="/logout">Çıxış</a></li>
 

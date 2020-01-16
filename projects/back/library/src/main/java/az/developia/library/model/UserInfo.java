@@ -23,16 +23,7 @@ public class UserInfo {
 	private String username;
 	private String password;
 	private String email;
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Book> books;
-	
-	
-	public List<Book> getBooks() {
-		return books;
-	}
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
+
 	public Integer getId() {
 		return id;
 	}

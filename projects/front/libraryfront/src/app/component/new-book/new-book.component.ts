@@ -67,8 +67,9 @@ export class NewBookComponent implements OnInit {
   saveBook() {
     if (this.userService.username === '') {
 
-    } else {
+    } else {this.book.userId=this.userService.userId;
       if(this.bookService.selectedBookId>0){
+        
         if(this.image===undefined){
           this.bookService.findById(this.bookService.selectedBookId).subscribe(
             resp=>{
@@ -85,6 +86,7 @@ export class NewBookComponent implements OnInit {
           this.uploadService.upload(this.image).subscribe(
             resp => {
               this.book.image = resp.image;
+              
               this.bookService.update(this.book).subscribe(
                 resp=>{alert('Uğurlu Redaktə');}
               );

@@ -18,6 +18,7 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { BookPageComponent } from './component/book-page/book-page.component';
 import { NewBookComponent } from './component/new-book/new-book.component';
+import { SellingBookComponent } from './component/selling-book/selling-book.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NewBookComponent } from './component/new-book/new-book.component';
     LogoutComponent,
     BookPageComponent,
     NewBookComponent,
+    SellingBookComponent,
 
   ],
   imports: [

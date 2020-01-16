@@ -30,16 +30,13 @@ public class Book {
 	private Double price;
 	private String author;
 	private Byte enabled;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id")
-	@JsonIgnoreProperties(value={"books"})
-	private UserInfo userInfo;
+	private Integer userId;
 
-	public UserInfo getUserInfo() {
-		return userInfo;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public Byte getEnabled() {
 		return enabled;
