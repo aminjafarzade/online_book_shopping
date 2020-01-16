@@ -1,0 +1,47 @@
+<div style="width: 600px; "></div>
+<p style="font-size:40px;font-weight: bolder;text-align: center; ">Səbət</p>
+<div *ngIf="basket" style="font-size: 30px;font-weight: bold;height: 400px;">Səbət Boşdur</div>
+<div *ngIf="basket===false" style="height: 400px;overflow: scroll;">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Şəkil</th>
+                <th>Ad</th>
+                <th>Qiymət</th>
+                <th>Miqdar</th>
+                <th>Cəmi</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of basketBooks;let counter=index">
+                <td><img [src]="downloadPath+b.book.image" style="width: 40px;"></td>
+                <td>{{b.book.name}}</td>
+                <td>{{b.book.price}}</td>
+                <td><input type="number" [(ngModel)]="b.count" (input)="onCountChanged()"></td>
+                <td>{{ceilling(b.book.price,b.count)}} AZN </td>
+                <td><button id="button" style="margin-top: 20px;margin-left: 40px; " (click)="onDelete(counter)">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="basket===false">
+    <p style="font-size: 25px; font-weight: bold;">Ümumi Qiymət : {{getAllBookPrice()}} AZN</p>
+</div>
+<div class="container" *ngIf="basket===false">
+
+<div class="row">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-5">
+       <button class="btn btn-success" mat-dialog-close (click)="onOrder()">Sifarişi Təsdiqlə</button>
+        
+    
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+</div>
+    
+</div>

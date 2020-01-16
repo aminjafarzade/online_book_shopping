@@ -19,6 +19,10 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { BookPageComponent } from './component/book-page/book-page.component';
 import { NewBookComponent } from './component/new-book/new-book.component';
 import { SellingBookComponent } from './component/selling-book/selling-book.component';
+import { BasketComponent } from './component/basket/basket.component';
+import { OrderPageComponent } from './component/order-page/order-page.component';
+import { BookTemplateComponent } from './component/book-template/book-template.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { SellingBookComponent } from './component/selling-book/selling-book.comp
     BookPageComponent,
     NewBookComponent,
     SellingBookComponent,
+    BasketComponent,
+    OrderPageComponent,
+    BookTemplateComponent,
 
   ],
   imports: [

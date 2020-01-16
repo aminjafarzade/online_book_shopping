@@ -1,1 +1,43 @@
-<p>selling-book works!</p>
+<div class="container-fluid">
+
+    <div class="row sticky-top" style="background-color: white;">
+
+        <div class="col-sm-3  " style="max-height: 100px;">
+            <img src="../../../assets/img/LogoTransparent.png" class="img-responsive " style="width: 100%; " />
+        </div>
+        <div class="col-sm-6 ">
+            <input type="text" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Axtar"
+                class="form-control " style="margin-top: 30px;" />
+        </div>
+        <div class="col-sm-3 ">
+            <div *ngIf="showBasket" (click)="onOpenBasket()" id="basket">Səbət: {{productCount}}-Kitab </div>
+        </div>
+    </div>
+
+
+
+    <img style="width: 100%;" src="../../../assets/img/bir.jpg">
+
+    <div class="row">
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-11">
+
+            <div class="margin:auto;">
+                <app-book-template *ngFor="let p of books" [book]="p">
+
+
+                </app-book-template>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollDistance]="1000" (scrolled)="onScroll()">
+
+</div>

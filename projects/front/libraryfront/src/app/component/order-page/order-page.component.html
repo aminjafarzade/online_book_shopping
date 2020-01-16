@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+    <form #orderForm="ngForm" (ngSubmit)='!orderForm.invalid && saveOrder()' class="was-validated">
+        <div class="form-group">
+            Ad:<input type="text" class="form-control" [(ngModel)]="order.customer.name" required name="name">
+            <div class="valid-feedback">Doğru</div>
+            <div class="invalid-feedback">Adı Doldurun.</div>
+        </div>
+        <div class="form-group">
+            Ünvan:<input type="text" class="form-control" [(ngModel)]="order.customer.address" required name="place">
+            <div class="valid-feedback">Doğru</div>
+            <div class="invalid-feedback">Ünvanı Düzgün Yazın.</div>
+        </div>
+        <div class="form-group">
+            Telefon:<input type="tel" class="form-control" [(ngModel)]="order.customer.phone" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
+             required name="phone">
+            <div class="valid-feedback">Doğru</div>
+            <div class="invalid-feedback">Telefonu Düzgün Yazın.</div>
+        </div>
+        <div class="form-group">
+            Email:<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="order.customer.email" class="form-control" required name="email">
+            <div class="valid-feedback">Doğru</div>
+            <div class="invalid-feedback">Email i Düzgün Yazın.</div>
+        </div>
+        Qeyd:<br>
+        <textarea type="text" style="width:100%;border-radius: 6px;" [(ngModel)]="order.note" name="note"></textarea>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="confirm" name="confirm" required #customerConfirm="ngModel"> Təsdiqləyirəm
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Təsdiqləyin.</div>
+            </label>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Kitab Sifarişini Təsdiqlə</button>
+    </form>
+
+
+</div>
