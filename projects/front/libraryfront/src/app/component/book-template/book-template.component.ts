@@ -31,6 +31,7 @@ export class BookTemplateComponent implements OnInit {
     }
     console.log(this.description);
   }
+
   addBasket() {
     
     let thisBookAlreadyInBasket: boolean = false;
@@ -43,20 +44,46 @@ export class BookTemplateComponent implements OnInit {
       }
 
     }
-    if(thisBookAlreadyInBasket){
+   
+    if(basketBooks.length>0){
+      if(basketBooks[0].book.userId===this.book.userId){
+        if(thisBookAlreadyInBasket){
 
+        }else{
+          let basketBook:BasketBook=new BasketBook(0);
+          basketBook.book=this.book;
+          this.basketService.basketBooks.push(basketBook);
+          
+        }
+        
+        let basketCount=0;
+        for (let index = 0; index < basketBooks.length; index++) {
+          basketCount+=basketBooks[index].count;
+        }
+        this.basketService.productCountChanged.emit(basketCount);
+      }else{
+        alert("Muxtelif userlerin mallari eyni vaxta sifaris oluna bilmez")
+      }
     }else{
-      let basketBook:BasketBook=new BasketBook(0);
-      basketBook.book=this.book;
-      this.basketService.basketBooks.push(basketBook);
+      if(thisBookAlreadyInBasket){
+
+      }else{
+        let basketBook:BasketBook=new BasketBook(0);
+        basketBook.book=this.book;
+        this.basketService.basketBooks.push(basketBook);
+        
+      }
       
+      let basketCount=0;
+      for (let index = 0; index < basketBooks.length; index++) {
+        basketCount+=basketBooks[index].count;
+      }
+      this.basketService.productCountChanged.emit(basketCount);
     }
+     
+     
+  
     
-    let basketCount=0;
-    for (let index = 0; index < basketBooks.length; index++) {
-      basketCount+=basketBooks[index].count;
-    }
-    this.basketService.productCountChanged.emit(basketCount);
   }
 
 

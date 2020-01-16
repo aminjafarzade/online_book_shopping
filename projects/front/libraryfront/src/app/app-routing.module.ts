@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'logout',component:LogoutComponent},
   {path:'sign-in',component:SignInComponent},
   {path:'selling-books',component:SellingBookComponent},
-
+  {path:'ordered-books',component:OrderedBooksComponent},
   {path:'',component:SellingBookComponent},
   {path:'order',component:OrderPageComponent},
   {path:'**',component:SellingBookComponent}

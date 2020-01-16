@@ -4,6 +4,7 @@ import { BasketBook } from 'src/app/model/basket';
 import { OrderService } from 'src/app/service/order.service';
 import { Router } from '@angular/router';
 import { BasketService } from 'src/app/service/basket.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-order-page',
@@ -12,7 +13,7 @@ import { BasketService } from 'src/app/service/basket.service';
 })
 export class OrderPageComponent implements OnInit {
 
-  constructor(private basketService: BasketService,private orderService:OrderService,private router:Router) { }
+  constructor(private basketService: BasketService,private orderService:OrderService,private router:Router,private userService:UserService) { }
   basketBooks: BasketBook[] = [];
   confirm: boolean = false;
   order: OrderModel = new OrderModel(0);
@@ -31,7 +32,7 @@ export class OrderPageComponent implements OnInit {
     this.order.totalPrice = totalPrice;
   }
   saveOrder() {
-
+this.order.userId=this.userService.userId;
     this.orderService.addOrder(this.order).subscribe(
       resp=>{
         alert('Uğurlu Sifariş');

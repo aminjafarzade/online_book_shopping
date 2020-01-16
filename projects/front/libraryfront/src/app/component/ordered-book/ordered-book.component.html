@@ -1,1 +1,71 @@
-<p>ordered-book works!</p>
+<div style="background-color: blue;">
+    <p style="color: white; font-size:30px; text-align: center;font-weight: bold;">Sifariş Olunan Kitablar</p>
+</div>
+
+
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped table-bordered table-sm row-border hover" datatable
+                [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Müştəri</th>
+                        <th>Kitablar</th>
+                        <th>Ümumi Qiymət</th>
+                        <th>Tarix</th>
+                        <th>Qeyd</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of orders;let count=index">
+                        <td>{{o.id}}</td>
+                        <td style="width: 250px;">
+                            <p style="color: black;"><b
+                                    style="color:black; font-weight: normal;">Ad:</b><b>{{o.customer.name}}</b></p>
+                            <p style="color: brown;"><b
+                                    style="color:black; font-weight: normal;">Email:</b>{{o.customer.email}}</p>
+
+
+
+                            <p style="color: blue;"><b
+                                    style="color:black; font-weight: normal;">Ünvan:</b>{{o.customer.address}}</p>
+                            <p style="color: red;"><b style="color:black; font-weight: normal;">Telefon:</b>{{o.customer.phone}}</p>
+ 
+        </td>
+        <td style="width: 290px;">
+            <ul>
+                <li *ngFor="let b of o.basketBooks">
+                    
+                    <p style="float: left;">Ad:</p><p style="font-weight: bolder;">{{b.book.name}}</p>
+
+
+
+                            <p style="color: blue;"><b
+                                    style="color: black; font-weight: normal;">Qiymət:</b>{{b.book.price}}</p>
+
+
+                            <p style="color: blue;"><b style="color: black; font-weight: normal;">Miqdar:</b>{{b.count}}
+                            </p>
+
+                            </li>
+                            </ul>
+                        </td>
+                        <td>
+                            {{o.totalPrice}}
+                        </td>
+                        <td>
+                            {{o.register | date:'yyyy-MM-dd HH'}}
+                        </td>
+                        <td>
+                            {{o.note}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

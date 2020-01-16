@@ -10,5 +10,6 @@ export class OrderModel{
     totalPrice:number;
     register:Date=new Date();
     note:string;
+    userId:number;
     
 }
