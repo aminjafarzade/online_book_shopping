@@ -1,21 +1,16 @@
 <div class="container-fluid">
 
-    <div class="row sticky-top" style="background-color: white;">
-
-        <div class="col-sm-3  " style="max-height: 100px;">
-          
-        </div>
-        <div class="col-sm-6 ">
-            <input type="text" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Axtar"
-                class="form-control " style="margin-top: 30px;" />
-        </div>
-        <div class="col-sm-3 ">
-            <div *ngIf="showBasket" (click)="onOpenBasket()" id="basket">Səbət: {{productCount}}-Kitab </div>
-        </div>
-    </div>
+ <div style="bottom: 10px;right: 10px;position: fixed;z-index: 1;"> 
+    
+    <input type="text" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Axtar"
+    class="form-control " style=" width: 150px; " />
 
 
+</div>
+<div style="position: fixed;bottom:40px;right: 10px;z-index: 1;" *ngIf="showBasket" (click)="onOpenBasket()"  id="basket">Səbət: {{productCount}}-Kitab </div>
+   
 
+<img src="../../../assets/iki.jpg" style="width: 100%; margin-top: 20px;"> 
     <div class="row">
         <div class="col-sm-1">
 
