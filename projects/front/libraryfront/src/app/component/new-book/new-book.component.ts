@@ -48,7 +48,7 @@ export class NewBookComponent implements OnInit {
 
   }
   image: File;
-  imageSelected(event) {
+  imageSelected(event) {//komputerden image secir
 
 
     this.image = (<File[]>event.target.files)[0];
@@ -64,7 +64,7 @@ export class NewBookComponent implements OnInit {
 
 
   errorMessage: string = '';
-  saveBook() {
+  saveBook() {//kitabi yadda saxlayir
     if (this.userService.username === '') {
 
     } else {this.book.userId=this.userService.userId;

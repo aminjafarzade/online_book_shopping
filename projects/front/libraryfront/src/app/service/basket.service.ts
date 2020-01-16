@@ -10,7 +10,7 @@ export class BasketService {
   productCountChanged=new EventEmitter<number>();
   constructor() { }
 
-  getProductCount():number{
+  getProductCount():number{//sifaris olunan umumi kitab sayin qaytarir
     let count=0;
     for (let index = 0; index < this.basketBooks.length; index++) {
       const b = this.basketBooks[index];

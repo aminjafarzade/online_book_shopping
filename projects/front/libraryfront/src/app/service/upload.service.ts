@@ -11,7 +11,7 @@ export class UploadService {
 
   constructor(private http:HttpClient) { }
 
-  upload(file:File){
+  upload(file:File){//sekli upload edir
     let fd=new FormData();
     fd.append("file",file);
     return this.http.post<ImageBean>(`${API_URL}/fileupload`,fd);

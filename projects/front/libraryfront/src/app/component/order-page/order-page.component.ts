@@ -31,7 +31,7 @@ export class OrderPageComponent implements OnInit {
     }
     this.order.totalPrice = totalPrice;
   }
-  saveOrder() {
+  saveOrder() {//sifarisi yadda saxlayir
 this.order.userId=this.userService.userId;
 
     this.orderService.addOrder(this.order).subscribe(

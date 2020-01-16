@@ -52,7 +52,7 @@ export class BookPageComponent implements OnInit {
 
   }
   downloadPath: string;
-  newBook() {
+  newBook() {//Yeni kitab ucun sehifeni acir
     let dialog = this.matDialog.open(NewBookComponent);
     dialog.afterClosed().subscribe(
       resp => {
@@ -61,7 +61,7 @@ export class BookPageComponent implements OnInit {
     );
 
   }
-  load() {
+  load() {//butun kitablari getirir user ve enabled leye gore
     this.bookService.findAll(this.userService.userId).subscribe(data => {
       this.books = data;
     });
@@ -93,10 +93,10 @@ export class BookPageComponent implements OnInit {
 
   searchText: string = '';
 
-  quickSearch() {
+  quickSearch() {//suretli axtaris
     this.gridApi.setQuickFilter(this.searchText);
   }
-  deleteSelected(bool: boolean) {
+  deleteSelected(bool: boolean) {//kitabi silmek ucun
     if (bool) {
     const selectedRows = this.agGrid.api.getSelectedRows();
     if (selectedRows.length > 0) {
@@ -120,7 +120,7 @@ export class BookPageComponent implements OnInit {
 
     }
   }
-  editSelected() {
+  editSelected() {//kitabi redakte etmek ucun
     const selectedRows = this.agGrid.api.getSelectedRows();
     if (selectedRows.length > 0) {
       let id: number = selectedRows[0].id;

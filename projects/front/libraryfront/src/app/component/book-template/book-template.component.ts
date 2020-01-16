@@ -32,7 +32,7 @@ export class BookTemplateComponent implements OnInit {
     console.log(this.description);
   }
 
-  addBasket() {
+  addBasket() {//kitabi sebete elave edir eger sebet de varsa onun sayin artirir
     
     let thisBookAlreadyInBasket: boolean = false;
     let basketBooks = this.basketService.basketBooks;

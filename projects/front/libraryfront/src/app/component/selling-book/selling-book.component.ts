@@ -47,11 +47,11 @@ downloadPath:string;
 
   }
   showBasket: boolean = true;
-  onOpenBasket() {
+  onOpenBasket() {//basketi acir
     this.matDialog.open(BasketComponent);
 
   }
-  findBySearch() {
+  findBySearch() {//axtaris edir
     if(this.searchText===''){
       this.bookService.findPartial(this.begin,this.length).subscribe(
         resp=>{
@@ -71,7 +71,7 @@ downloadPath:string;
   }
   begin:number=0;
   length:number=10;
-  onScroll(){
+  onScroll(){//infinite scroll u aktiv edir
     this.begin+=10;
     this.bookService.findPartial(this.begin,this.length).subscribe(
       resp => {
