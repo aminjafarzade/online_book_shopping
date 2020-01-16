@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +26,10 @@ public class OrderController {
 	public Integer add(@RequestBody OrderModel o){
 		return orderDAO.save(o).getId();
 	}
-	@GetMapping
-	public List<OrderModel> findAll(){
+	@GetMapping("/find/{userId}")
+	public List<OrderModel> findAll(@PathVariable(name="userId") Integer userId){
 		System.out.print(orderDAO.findAll());
-		return orderDAO.findAll();
+		return orderDAO.findAllById(userId);
 	}
 	
 

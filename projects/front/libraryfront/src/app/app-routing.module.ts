@@ -6,6 +6,7 @@ import { BookPageComponent } from './component/book-page/book-page.component';
 import { SellingBookComponent } from './component/selling-book/selling-book.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { OrderPageComponent } from './component/order-page/order-page.component';
+import { OrderedBookComponent } from './component/ordered-book/ordered-book.component';
 
 
 
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path:'logout',component:LogoutComponent},
   {path:'sign-in',component:SignInComponent},
   {path:'selling-books',component:SellingBookComponent},
-  {path:'ordered-books',component:OrderedBooksComponent},
+  {path:'ordered-books',component:OrderedBookComponent},
   {path:'',component:SellingBookComponent},
   {path:'order',component:OrderPageComponent},
   {path:'**',component:SellingBookComponent}
