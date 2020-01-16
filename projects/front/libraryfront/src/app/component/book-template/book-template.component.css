@@ -1,0 +1,32 @@
+#book{
+    cursor: pointer;
+    transition: .2s;
+    border: 2px solid lightgray;
+    
+    width: 264px;
+    margin: 30px;
+    float: left;
+
+}
+#book:hover{
+    cursor: pointer;
+    box-shadow:0 10px 40px 20px rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+    background: white;
+ 
+    cursor: pointer;
+    
+}
+.image-wrapper {
+    margin: 0 auto;
+    width: 500px;
+   /*   overflow: hidden; */
+    font-size: 0;
+   }
+   img {
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+   }
+
+   .image-wrapper:hover img {
+    transform: scale(1.2);
+   }

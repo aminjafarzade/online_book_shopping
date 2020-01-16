@@ -23,6 +23,7 @@ import { BasketComponent } from './component/basket/basket.component';
 import { OrderPageComponent } from './component/order-page/order-page.component';
 import { BookTemplateComponent } from './component/book-template/book-template.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { OrderedBookComponent } from './component/ordered-book/ordered-book.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BasketComponent,
     OrderPageComponent,
     BookTemplateComponent,
+    OrderedBookComponent,
 
   ],
   imports: [
@@ -55,6 +57,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'success', cancelButtonType: 'danger', confirmText: 'Təsdiq', cancelText: 'Ləğv'
     }),
+    InfiniteScrollModule
     
 
 
@@ -65,7 +68,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
       
     }
   ],
-  entryComponents:[SignInComponent,NewBookComponent],
+  entryComponents:[SignInComponent,NewBookComponent,BasketComponent],
   bootstrap: [AppComponent]
 
 })

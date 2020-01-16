@@ -1,0 +1,56 @@
+#basket{
+    border: 1px solid blue;
+    border-radius: 10px;
+    color: black;
+    background-color: #ffff66;
+    text-align: center;
+    padding: 5px;
+    transform: translate(-50%,-50%);
+    transition: .6s;
+    overflow: hidden;
+    margin-top: 50px ; 
+    font-size: 15px;
+    width: 150px;
+    margin-left: 80px;
+
+
+}
+#basket:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px 9px rgba(0, 230, 0, 0.2), 0 6px 20px 0 rgba(0, 230, 0, 0.19);
+    background: #ffffcc;
+    cursor: pointer;
+    
+}
+#basket:after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(25, 252, 252, .2);
+   
+    opacity: 0;
+    filter: blur(30px);
+    transform: translate(-100px) scaleX(-15deg);
+
+
+}
+#button::before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(25,252,252,.5);
+  
+    opacity: .5s;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+#basket:hover:before{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: .6;
+    transition: .7s;
+}
+#basket:hover:after{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: .7s;
+}
