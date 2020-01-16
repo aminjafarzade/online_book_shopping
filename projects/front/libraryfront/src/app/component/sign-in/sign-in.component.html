@@ -1,0 +1,36 @@
+<div class="container">
+    <p style="font-size: 30px; font-weight: bold; text-align: center;" class="text-success">Yeni Hesab Yarat</p>
+    <form #userForm="ngForm"  (ngSubmit)='!userForm.invalid && signIn()'>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Ad:</td>
+                    <td><input type="text" [(ngModel)]="userInfo.name" required name="name"></td>
+                </tr>
+                <tr>
+                    <td>Soyad:</td>
+                    <td><input type="text" [(ngModel)]="userInfo.surname" required name="surname"></td>
+                </tr>
+                <tr>
+                    <td>İstifadəçi Adı:</td>
+                    <td><input type="text" [(ngModel)]="userInfo.username" required name="username"></td>
+                </tr>
+                <tr>
+                    <td>Şifrə:</td>
+                    <td><input type="password" [(ngModel)]="userInfo.password" required name="password"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" [(ngModel)]="userInfo.email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></td>
+                </tr>
+                <tr>
+                        <td></td>
+                        <td><button class="btn btn-success" type="submit">Hesab Yarat</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </form>
+    <h6 style="color: red;" *ngIf="userForm.invalid">{{errorMessage}}</h6><br>
+    <h6 style="color: red;" *ngIf="isUsernameValidated()">{{usernameErrorMessage}}</h6>
+</div>

@@ -14,12 +14,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BasicInterceptorService } from './service/basic-interceptor.service';
+import { SignInComponent } from './component/sign-in/sign-in.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     LoginComponent,
+    SignInComponent,
+    LogoutComponent,
 
   ],
   imports: [
@@ -37,7 +41,8 @@ import { BasicInterceptorService } from './service/basic-interceptor.service';
     MatButtonModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'success', cancelButtonType: 'danger', confirmText: 'Təsdiq', cancelText: 'Ləğv'
-    })
+    }),
+    
 
 
   ],
@@ -47,6 +52,7 @@ import { BasicInterceptorService } from './service/basic-interceptor.service';
       
     }
   ],
+  entryComponents:[SignInComponent],
   bootstrap: [AppComponent]
 
 })

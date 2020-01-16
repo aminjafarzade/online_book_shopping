@@ -1,5 +1,5 @@
 export class UserInfo{
-    constructor(username:string,password:string){
+     constructor(username:string,password:string){
 
     }
     public id:number;
