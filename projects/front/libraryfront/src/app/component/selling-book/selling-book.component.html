@@ -1,13 +1,13 @@
 <div class="container-fluid">
-
- <div style="bottom: 10px;right: 10px;position: fixed;z-index: 1;"> 
+    <div style="position: fixed;bottom:10px;right: 10px;z-index: 1;" *ngIf="showBasket" (click)="onOpenBasket()" id="basket">Səbət: {{productCount}}-Kitab </div>
+ <div style="bottom: 50px;right: 10px;position: fixed;z-index: 1;"> 
     
-    <input type="text" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Axtar"
-    class="form-control " style=" width: 150px; " />
+    <input type="text" id="input" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Kitab Axtar"
+    class="form-control " style=" width: 130px; " />
 
 
 </div>
-<div style="position: fixed;bottom:40px;right: 10px;z-index: 1;" *ngIf="showBasket" (click)="onOpenBasket()"  id="basket">Səbət: {{productCount}}-Kitab </div>
+
    
 
 <img src="../../../assets/iki.jpg" style="width: 100%; margin-top: 20px;"> 

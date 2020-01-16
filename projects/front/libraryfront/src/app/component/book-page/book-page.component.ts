@@ -36,7 +36,7 @@ export class BookPageComponent implements OnInit {
     this.userService.getAllUser().subscribe(
       resp => {
         this.users = resp;
-    
+
         for (let index = 0; index < this.users.length; index++) {
           const u = this.users[index];
           if (u.username === this.username) {
@@ -97,9 +97,10 @@ export class BookPageComponent implements OnInit {
     this.gridApi.setQuickFilter(this.searchText);
   }
   deleteSelected(bool: boolean) {
+    if (bool) {
     const selectedRows = this.agGrid.api.getSelectedRows();
     if (selectedRows.length > 0) {
-      if (bool) {
+    
 
 
         let id: number = selectedRows[0].id;
@@ -109,12 +110,15 @@ export class BookPageComponent implements OnInit {
           }
         );
 
-      } else {
-
       }
+     else{
+      alert("Secilen Yoxdur");
+      
     }
+  }
+    else {
 
-
+    }
   }
   editSelected() {
     const selectedRows = this.agGrid.api.getSelectedRows();
@@ -123,7 +127,7 @@ export class BookPageComponent implements OnInit {
       this.bookService.selectedBookId = id;
       this.bookService.findById(id).subscribe(
         resp => {
-         
+
         }
       );
       let dialog = this.matDialog.open(NewBookComponent);
@@ -133,7 +137,10 @@ export class BookPageComponent implements OnInit {
           this.bookService.selectedBookId = 0;
         }
       );
+    }else{
+      alert("Secilen Yoxdur");
     }
   }
+ 
 
 }

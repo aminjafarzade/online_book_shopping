@@ -1,18 +1,30 @@
 #basket{
     border: 1px solid blue;
-    border-radius: 10px;
+    border-radius: 4px;
     color: black;
     background-color: #ffff66;
     text-align: center;
     padding: 5px;
-    transform: translate(-50%,-50%);
+
     transition: .6s;
-    overflow: hidden;
+    
    
     font-size: 15px;
-    width: 150px;
+    width: 130px;
+    opacity: 0.5;
+    height: 37px;
   
 
+
+}
+#input{
+transition: .5s;
+    opacity: 0.5;
+    border: 1px solid blue;
+}
+#input:hover{
+
+    box-shadow: 0 4px 8px 2px rgb(102, 102, 255), 0 6px 20px 0 rgb(102, 102, 255);
 
 }
 #basket:hover{
@@ -21,36 +33,4 @@
     background: #ffffcc;
     cursor: pointer;
     
-}
-#basket:after{
-    content: '';
-    display: block;
-    position: absolute;
-    background: rgba(25, 252, 252, .2);
-   
-    opacity: 0;
-    filter: blur(30px);
-    transform: translate(-100px) scaleX(-15deg);
-
-
-}
-#button::before{
-    content: '';
-    display: block;
-    position: absolute;
-    background: rgba(25,252,252,.5);
-  
-    opacity: .5s;
-    filter: blur(30px);
-    transform: translateX(-130px) skewX(-15deg);
-}
-#basket:hover:before{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: .6;
-    transition: .7s;
-}
-#basket:hover:after{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: 1;
-    transition: .7s;
 }

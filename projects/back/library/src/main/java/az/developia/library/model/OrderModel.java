@@ -69,6 +69,21 @@ public class OrderModel {
 				+ ", totalPrice=" + totalPrice + ", register=" + register + "]";
 	}
 	public Double totalPrice;
+	
 	public Timestamp register;
+	public Integer userId;
+
+	public Timestamp getRegister() {
+		return register;
+	}
+	public void setRegister(Timestamp register) {
+		this.register = register;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
 }
