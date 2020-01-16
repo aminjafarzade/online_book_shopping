@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
 
 
   }
-  isUsernameValidated() {
+  isUsernameValidated() {// istifadecinin list de olub olmadigini yoxlayir
     if (this.usernames.includes(this.userInfo.username)) {
       return true;
     } else {
@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit {
     }
   }
 
-  signIn() {
+  signIn() {//istifadecini qeydiyyat edir
     this.userService.addUser(this.userInfo).subscribe(
       resp=>{
         this.userService.userHas=true;

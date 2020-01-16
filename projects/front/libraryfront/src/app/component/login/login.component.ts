@@ -46,6 +46,14 @@ export class LoginComponent implements OnInit {
         this.message = '';
 
         this.userService.setUsername(this.username);
+        for (let index = 0; index < this.users.length; index++) {
+          const u = this.users[index];
+          if (u.username === this.username) {
+            this.userService.userId = u.id;
+          }
+
+        }
+        console.log(this.userService.userId);
         this.router.navigate(["book-page"]);
 
       } else {
@@ -60,7 +68,7 @@ export class LoginComponent implements OnInit {
 
 
 
-create() {
+  create() {//yeni istifadeci yaratmaq penceresini acir ve sonra yaranmis istifadecini list e elave edir
     let dialog = this.matDialog.open(SignInComponent);
     dialog.afterClosed().subscribe(
       resp => {
@@ -72,6 +80,6 @@ create() {
         console.log(resp);
       }
     );
-  } 
+  }
 
 }

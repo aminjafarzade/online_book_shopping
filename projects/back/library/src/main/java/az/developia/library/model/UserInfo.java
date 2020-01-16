@@ -1,6 +1,7 @@
 package az.developia.library.model;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,8 +23,16 @@ public class UserInfo {
 	private String username;
 	private String password;
 	private String email;
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Book> books;
 	
 	
+	public List<Book> getBooks() {
+		return books;
+	}
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
 	public Integer getId() {
 		return id;
 	}

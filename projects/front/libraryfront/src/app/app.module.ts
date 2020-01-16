@@ -16,6 +16,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BasicInterceptorService } from './service/basic-interceptor.service';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { BookPageComponent } from './component/book-page/book-page.component';
+import { NewBookComponent } from './component/new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { LogoutComponent } from './component/logout/logout.component';
     LoginComponent,
     SignInComponent,
     LogoutComponent,
+    BookPageComponent,
+    NewBookComponent,
 
   ],
   imports: [
@@ -52,7 +56,7 @@ import { LogoutComponent } from './component/logout/logout.component';
       
     }
   ],
-  entryComponents:[SignInComponent],
+  entryComponents:[SignInComponent,NewBookComponent],
   bootstrap: [AppComponent]
 
 })
