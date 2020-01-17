@@ -14,7 +14,7 @@ export class NewBookComponent implements OnInit {
   book: Book = new Book();
   users: UserInfo[] = [];
   user: UserInfo = new UserInfo('', '');
-  type:string='';
+  type: string = '';
   constructor(private uploadService: UploadService, private bookService: BookService, private userService: UserService) { }
 
   ngOnInit() {
@@ -24,22 +24,22 @@ export class NewBookComponent implements OnInit {
       this.bookService.findById(this.bookService.selectedBookId).subscribe(
         resp => {
           this.book = resp;
-          this.book.userId=this.userService.userId;
+          this.book.userId = this.userService.userId;
           console.log(this.book);
         }
       );
       console.log(this.book);
-      this.type='Kitab Redaktesi';
+      this.type = 'Kitab Redaktesi';
 
     } else {
-      this.type='Yeni Kitab Qeydiyyati';
+      this.type = 'Yeni Kitab Qeydiyyati';
 
     }
 
     this.userService.getAllUser().subscribe(
       resp => {
 
-      
+
       }
     );
 
@@ -65,62 +65,73 @@ export class NewBookComponent implements OnInit {
 
   errorMessage: string = '';
   saveBook() {//kitabi yadda saxlayir
-    let books:Book[]=[];
+    let books: Book[] = [];
+    let isHas: boolean = false;
     this.bookService.findAll(this.userService.userId).subscribe(
-      resp=>{
-        books=resp;
+      resp => {
+        books = resp;
 
       }
     );
-    if (this.userService.username === '') {
+    for (let index = 0; index < books.length; index++) {
+      const b = books[index];
+      if (b.name === this.book.name && b.author === this.book.author) {
+        isHas = true;
+      }
 
-    } else {this.book.userId=this.userService.userId;
-      if(this.bookService.selectedBookId>0){
-        
-        if(this.image===undefined){
-          this.bookService.findById(this.bookService.selectedBookId).subscribe(
-            resp=>{
-              
-              console.log(resp);
-            }
-          );
-          if(books.includes(this.book)){
-            alert("Bu Kitab Artiq var");
-          }else{
+    }
+
+    if(isHas){
+alert("Bu Kitab artiq var");
+    }else{
+      if (this.userService.username === '') {
+
+      } else {
+        this.book.userId = this.userService.userId;
+        if (this.bookService.selectedBookId > 0) {
+  
+          if (this.image === undefined) {
+            this.bookService.findById(this.bookService.selectedBookId).subscribe(
+              resp => {
+  
+                console.log(resp);
+              }
+            );
+  
             this.bookService.update(this.book).subscribe(
-              resp=>{
+              resp => {
                 alert('Uğurlu Redaktə');
               }
             );
-          }
-          
-        }else{
-          this.uploadService.upload(this.image).subscribe(
-            resp => {
-              this.book.image = resp.image;
-              if(){
-
-              }
-              this.bookService.update(this.book).subscribe(
-                resp=>{alert('Uğurlu Redaktə');}
-              );
-            }
-            
-          );
-        }
-        
   
-      }else{
-        
+  
+          } else {
+            this.uploadService.upload(this.image).subscribe(
+              resp => {
+                this.book.image = resp.image;
+  
+                this.bookService.update(this.book).subscribe(
+                  resp => { alert('Uğurlu Redaktə'); }
+                );
+  
+  
+              }
+  
+            );
+          }
+  
+  
+        } else {
+  
           for (let index = 0; index < this.users.length; index++) {
             if (this.users[index].username.includes(this.userService.username)) {
               this.user = this.users[index];
-    
+  
               console.log(this.user);
               break;
-    
+  
             }
-    
+  
           }
           this.uploadService.upload(this.image).subscribe(
             resp => {
@@ -128,17 +139,19 @@ export class NewBookComponent implements OnInit {
               this.bookService.addBook(this.book).subscribe(
                 resp => {
                   alert('Uğurlu Əməliyyat');
-    
-    
-    
+  
+  
+  
                 }
               );
             }
-            
+  
           );
-          this.errorMessage='Məlumatları Tam Yaz';
+          this.errorMessage = 'Məlumatları Tam Yaz';
         }
+      }
     }
+    
   }
 
 }
