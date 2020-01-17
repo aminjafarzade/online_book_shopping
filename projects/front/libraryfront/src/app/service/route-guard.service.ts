@@ -15,7 +15,7 @@ export class StudentGuardService implements CanActivate {
       result = true;
     } else {
       result = false;
-      this.router.navigate(['login']);
+      this.router.navigate(['selling-book']);
     }
 
 

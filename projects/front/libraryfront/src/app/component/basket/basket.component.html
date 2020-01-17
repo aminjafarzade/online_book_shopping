@@ -20,7 +20,7 @@
                 <td>{{b.book.price}}</td>
                 <td><input type="number" [(ngModel)]="b.count" (input)="onCountChanged()"></td>
                 <td>{{ceilling(b.book.price,b.count)}} AZN </td>
-                <td><button id="button" style="margin-top: 20px;margin-left: 40px; " (click)="onDelete(counter)">X</button></td>
+                <td><button id="button" (click)="onDelete(counter)">X</button></td>
             </tr>
         </tbody>
     </table>

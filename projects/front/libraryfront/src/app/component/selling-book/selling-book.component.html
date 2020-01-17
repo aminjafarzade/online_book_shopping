@@ -1,29 +1,28 @@
 <div class="container-fluid">
-    <div style="position: fixed;bottom:10px;right: 10px;z-index: 1;" *ngIf="showBasket" (click)="onOpenBasket()" id="basket">Səbət: {{productCount}}-Kitab </div>
- <div style="bottom: 50px;right: 10px;position: fixed;z-index: 1;"> 
-    
-    <input type="text" id="input" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Kitab Axtar"
-    class="form-control " style=" width: 130px; " />
+    <div style="position: fixed;bottom:10px;right: 10px;z-index: 1;" *ngIf="showBasket" (click)="onOpenBasket()"
+        id="basket">Səbət: {{productCount}}-Kitab </div>
+    <div style="bottom: 50px;right: 10px;position: fixed;z-index: 1;">
+
+        <input type="text" id="input" [(ngModel)]="searchText" (input)="findBySearch()" placeholder="Kitab Axtar"
+            class="form-control " style=" width: 150px; " />
 
 
-</div>
+    </div>
 
-   
 
-<img src="../../../assets/iki.jpg" style="width: 100%; margin-top: 20px;"> 
+
+    <img src="../../../assets/iki.jpg" style="width: 100%; margin-top: 20px;border-radius: 20px;">
     <div class="row">
-       <div class="col-sm-12">
-        <div style="margin-left:14%;">
+        <div style="margin:10px auto 0 auto;width: 860px;">
             <app-book-template *ngFor="let p of books" [book]="p">
 
 
             </app-book-template>
-        </div></div>
 
 
-        
+
+        </div>
     </div>
-
 
 
 

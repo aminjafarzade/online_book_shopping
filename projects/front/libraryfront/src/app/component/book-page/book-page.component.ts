@@ -7,6 +7,7 @@ import { UserInfo } from 'src/app/model/user';
 import { Book } from 'src/app/model/book';
 import { AgGridAngular } from 'ag-grid-angular';
 import { NewBookComponent } from '../new-book/new-book.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-page',
@@ -23,13 +24,15 @@ export class BookPageComponent implements OnInit {
 
   name: string = '';
 
-  constructor(private userService: UserService, private matDialog: MatDialog, private bookService: BookService) { }
+  constructor(private userService: UserService, private matDialog: MatDialog, private bookService: BookService,private router:Router) { }
   username: string = '';
 
   ngOnInit() {
 
-
-
+    if(this.userService.getUsername()===''){
+      this.router.navigate(["selling-book"]);
+    }else{
+      
     this.username = this.userService.getUsername();
     this.downloadPath = API_URL + '/filedownload/files/';
 
@@ -49,6 +52,9 @@ export class BookPageComponent implements OnInit {
     );
 
     this.load();
+
+    }
+
 
   }
   downloadPath: string;
@@ -71,6 +77,7 @@ export class BookPageComponent implements OnInit {
   popoverTitle: string = 'Təsdiq';
   popoverMessage: string = 'Kiatbı Silməyə əminsiniz?';
 
+selected:boolean=false;
 
 
   columnDefs = [

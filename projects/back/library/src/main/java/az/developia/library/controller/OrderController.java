@@ -26,10 +26,10 @@ public class OrderController {
 	public Integer add(@RequestBody OrderModel o){
 		return orderDAO.save(o).getId();
 	}
-	@GetMapping("/find/{userId}")
-	public List<OrderModel> findAll(@PathVariable(name="userId") Integer userId){
+	@GetMapping("/find")
+	public List<OrderModel> findAll(){
 		System.out.print(orderDAO.findAll());
-		return orderDAO.findAllById(userId);
+		return orderDAO.findAllById();
 	}
 	
 

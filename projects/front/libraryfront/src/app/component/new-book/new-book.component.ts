@@ -65,6 +65,13 @@ export class NewBookComponent implements OnInit {
 
   errorMessage: string = '';
   saveBook() {//kitabi yadda saxlayir
+    let books:Book[]=[];
+    this.bookService.findAll(this.userService.userId).subscribe(
+      resp=>{
+        books=resp;
+
+      }
+    );
     if (this.userService.username === '') {
 
     } else {this.book.userId=this.userService.userId;
@@ -77,16 +84,23 @@ export class NewBookComponent implements OnInit {
               console.log(resp);
             }
           );
-          this.bookService.update(this.book).subscribe(
-            resp=>{
-              alert('Uğurlu Redaktə');
-            }
-          );
+          if(books.includes(this.book)){
+            alert("Bu Kitab Artiq var");
+          }else{
+            this.bookService.update(this.book).subscribe(
+              resp=>{
+                alert('Uğurlu Redaktə');
+              }
+            );
+          }
+          
         }else{
           this.uploadService.upload(this.image).subscribe(
             resp => {
               this.book.image = resp.image;
-              
+              if(){
+
+              }
               this.bookService.update(this.book).subscribe(
                 resp=>{alert('Uğurlu Redaktə');}
               );

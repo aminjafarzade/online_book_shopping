@@ -71,7 +71,7 @@ public class OrderModel {
 	public Double totalPrice;
 	
 	public Timestamp register;
-	public Integer userId;
+
 
 	public Timestamp getRegister() {
 		return register;
@@ -79,11 +79,6 @@ public class OrderModel {
 	public void setRegister(Timestamp register) {
 		this.register = register;
 	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+	
 
 }

@@ -1,5 +1,7 @@
 <br>
+
 <div class="container">
+    
     <form #orderForm="ngForm" (ngSubmit)='!orderForm.invalid && saveOrder()' class="was-validated">
         <div class="form-group">
             Ad:<input type="text" class="form-control" [(ngModel)]="order.customer.name" required name="name">

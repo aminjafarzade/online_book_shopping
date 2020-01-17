@@ -1,55 +1,22 @@
 #button{
-    transform: translate(-50%,-50%);
+    
     background: none;
     color:#cc0000;
-    width:40px;
-    height: 40px;
+    width:35px;
+    height: 35px;
     
     
     border: 1px solid #cc0000;
     border-radius: 6px;
     transition: .6s;
-    font-size: 24px;
+    font-size: 20px;
     
     overflow: hidden; 
     }
-    #button:focus{
-        outline: none;
-    }
-    #button::before{
-        content: '';
-        display: block;
-        position: absolute;
-        background: rgba(25,252,252,.5);
-      
-        opacity: .5s;
-        filter: blur(30px);
-        transform: translateX(-130px) skewX(-15deg);
-    }
-    #button:after{
-        content: '';
-        display: block;
-        position: absolute;
-        background: rgba(25, 252, 252, .2);
-       
-        opacity: 0;
-        filter: blur(30px);
-        transform: translate(-100px) scaleX(-15deg);
-    
-    
-    }
+   
     #button:hover{
         background: #cc0000;
         cursor: pointer;
-        color: #ccc;
+        color: white;
     }
-    #button:hover:before{
-        transform: translateX(300px) skewX(-15deg);
-        opacity: .6;
-        transition: .7s;
-    }
-    #button:hover:after{
-        transform: translateX(300px) skewX(-15deg);
-        opacity: 1;
-        transition: .7s;
-    }
+   

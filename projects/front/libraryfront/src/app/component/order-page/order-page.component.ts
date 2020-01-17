@@ -20,19 +20,25 @@ export class OrderPageComponent implements OnInit {
 
 
   ngOnInit() {
-    this.basketBooks = this.basketService.basketBooks;
-    this.order.basketBooks = this.basketBooks;
-    let totalPrice = 0;
-    
-    for (let index = 0; index < this.order.basketBooks.length; index++) {
-      const o = this.order.basketBooks[index];
-
-      totalPrice += o.count * o.book.price;
+    if(this.basketService.basketBooks.length>0){
+      this.basketBooks = this.basketService.basketBooks;
+      this.order.basketBooks = this.basketBooks;
+      let totalPrice = 0;
+      
+      for (let index = 0; index < this.order.basketBooks.length; index++) {
+        const o = this.order.basketBooks[index];
+  
+        totalPrice += o.count * o.book.price;
+      }
+      this.order.totalPrice = totalPrice;
+    }else{
+      this.router.navigate(["selling-book"]);
     }
-    this.order.totalPrice = totalPrice;
+    
   }
+  ordered:boolean=false;
   saveOrder() {//sifarisi yadda saxlayir
-this.order.userId=this.userService.userId;
+
 
     this.orderService.addOrder(this.order).subscribe(
       resp=>{

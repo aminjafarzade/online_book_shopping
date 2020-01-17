@@ -29,7 +29,7 @@ export class BookTemplateComponent implements OnInit {
     if(this.book.description.length>9){
       this.description=this.book.description.substr(0,9)+'...';
     }
-    console.log(this.description);
+
   }
 
   addBasket() {//kitabi sebete elave edir eger sebet de varsa onun sayin artirir
@@ -46,7 +46,7 @@ export class BookTemplateComponent implements OnInit {
     }
    
     if(basketBooks.length>0){
-      if(basketBooks[0].book.userId===this.book.userId){
+      
         if(thisBookAlreadyInBasket){
 
         }else{
@@ -61,9 +61,7 @@ export class BookTemplateComponent implements OnInit {
           basketCount+=basketBooks[index].count;
         }
         this.basketService.productCountChanged.emit(basketCount);
-      }else{
-        alert("Muxtelif userlerin mallari eyni vaxta sifaris oluna bilmez")
-      }
+     
     }else{
       if(thisBookAlreadyInBasket){
 

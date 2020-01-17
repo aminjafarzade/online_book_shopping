@@ -12,8 +12,8 @@ export class OrderService {
   addOrder(o:OrderModel){//sifaris elave edir
     return this.http.post<number>(`${API_URL}/orders`,o);
   }
-  findAll(userId:number){//butun sifarisleri getirir
-    return this.http.get<OrderModel[]>(`${API_URL}/orders/find/${userId}`);
+  findAll(){//butun sifarisleri getirir
+    return this.http.get<OrderModel[]>(`${API_URL}/orders/find`);
   }
   search(search:string){//sifarisler uzerinde axtaris edir
     return this.http.get<OrderModel[]>(`${API_URL}/orders/search/${search}`);
