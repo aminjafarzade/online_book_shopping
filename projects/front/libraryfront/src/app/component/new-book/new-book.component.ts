@@ -61,28 +61,26 @@ export class NewBookComponent implements OnInit {
     }
 
   }
-
+isHas:boolean=false;
 
   errorMessage: string = '';
-  saveBook() {//kitabi yadda saxlayir
+  saveBook() {//kitabi yadda saxlayir ve kitabin db de olub olmadigni arasdirir
     let books: Book[] = [];
-    let isHas: boolean = false;
+    
     this.bookService.findAll(this.userService.userId).subscribe(
       resp => {
         books = resp;
-
-      }
-    );
-    for (let index = 0; index < books.length; index++) {
-      const b = books[index];
-      if (b.name === this.book.name && b.author === this.book.author) {
-        isHas = true;
-      }
-
-    }
-
-    if(isHas){
-alert("Bu Kitab artiq var");
+        for (let index = 0; index < books.length; index++) {
+          const b = books[index];
+          if (b.name === this.book.name && b.author === this.book.author) {
+            this.isHas = true;
+            break;
+          }
+    
+        }
+        
+    if(this.isHas){
+      alert("Bu Kitab artiq var");
     }else{
       if (this.userService.username === '') {
 
@@ -151,6 +149,10 @@ alert("Bu Kitab artiq var");
         }
       }
     }
+      }
+    );
+    
+
     
   }
 

@@ -4,7 +4,7 @@ export class Book {
     name: string = '';
     description: string = '';
     image: string = '';
-    pageCount: number = 0;
+    pageCount: number = 10;
     register: Date = new Date();
     price: number;
     author: string = '';

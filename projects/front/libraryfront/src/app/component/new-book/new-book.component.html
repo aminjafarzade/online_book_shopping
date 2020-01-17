@@ -4,7 +4,7 @@
         <table class="table">
             <tbody>
                 <tr><td>Ad:</td><td><input style="width: 100%;" type="text" [(ngModel)]="book.name" required name="bookName"></td></tr>
-                <tr><td>Təsvir:</td><td><textarea style="width: 100%;" type="text" required [(ngModel)]="book.description" style="width:100%;" name="description"></textarea></td></tr>
+                <tr><td>Təsvir:</td><td><textarea style="width: 100%;" type="text" [(ngModel)]="book.description" style="width:100%;" name="description"></textarea></td></tr>
                 <tr><td>Şəkil:</td><td><input style="width: 100%;" type="file"  (change)=imageSelected($event)></td></tr>
                 <tr><td>Səhifə Sayı:</td><td><input style="width: 100%;" type="number" [(ngModel)]="book.pageCount" step="1" min="10" max="10000" required name="bookPageCount"></td></tr>
                 <tr><td>Qiymet:</td><td><input style="width: 100%;" type="number" [(ngModel)]="book.price" step="0.01" min="0.1" max="10000" required name="bookPrice"></td></tr>
