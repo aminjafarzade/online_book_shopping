@@ -6,7 +6,7 @@ export class Book {
     image: string = '';
     pageCount: number = 10;
     register: Date = new Date();
-    price: number;
+    price: number=10;
     author: string = '';
     enabled:number=1;
     userId:number=0;

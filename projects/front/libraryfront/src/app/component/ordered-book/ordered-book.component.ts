@@ -39,6 +39,7 @@ export class OrderedBookComponent implements OnInit {
            
             const o = this.orders[index];
             let orderForUserId=new OrderModel(0);
+            let totalPrice:number=0;
             for (let j = 0; j < o.basketBooks.length; j++) {
               const b = o.basketBooks[j];
               let basketBook=new BasketBook(0);
@@ -50,13 +51,15 @@ export class OrderedBookComponent implements OnInit {
                 orderForUserId.id = o.id;
                 orderForUserId.note = o.note;
                 orderForUserId.register = o.register;
-                orderForUserId.totalPrice = o.totalPrice;
+                
+                totalPrice+= b.count*b.book.price;
                 if(orderForUserId.basketBooks.includes(b)){
 
                 }else{
                   orderForUserId.basketBooks.push(b);
                 }
               }
+              orderForUserId.totalPrice=totalPrice;
               
 
             }

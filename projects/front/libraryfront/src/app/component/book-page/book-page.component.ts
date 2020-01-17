@@ -8,6 +8,7 @@ import { Book } from 'src/app/model/book';
 import { AgGridAngular } from 'ag-grid-angular';
 import { NewBookComponent } from '../new-book/new-book.component';
 import { Router } from '@angular/router';
+import { GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'app-book-page',
@@ -23,12 +24,13 @@ export class BookPageComponent implements OnInit {
   users: UserInfo[] = [];
 
   name: string = '';
+  gridOptions: GridOptions;
 
   constructor(private userService: UserService, private matDialog: MatDialog, private bookService: BookService,private router:Router) { }
   username: string = '';
 
   ngOnInit() {
-
+    
     if(this.userService.getUsername()===''){
       this.router.navigate(["selling-book"]);
     }else{
@@ -103,9 +105,11 @@ selected:boolean=false;
   quickSearch() {//suretli axtaris
     this.gridApi.setQuickFilter(this.searchText);
   }
+  
   deleteSelected(bool: boolean) {//kitabi silmek ucun
-    if (bool) {
     const selectedRows = this.agGrid.api.getSelectedRows();
+    if (bool) {
+    
     if (selectedRows.length > 0) {
     
 
@@ -128,6 +132,7 @@ selected:boolean=false;
     }
   }
   editSelected() {//kitabi redakte etmek ucun
+    console.log(this.agGrid.api.getSelectedRows);
     const selectedRows = this.agGrid.api.getSelectedRows();
     if (selectedRows.length > 0) {
       let id: number = selectedRows[0].id;

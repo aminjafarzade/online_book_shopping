@@ -18,10 +18,10 @@ export class SellingBookComponent implements OnInit {
   searchText: string = '';
   constructor(private uploadService: UploadService, private matDialog: MatDialog, private bookService: BookService, private basketService: BasketService) { }
   books: Book[] = [];
-downloadPath:string;
+  downloadPath: string;
   ngOnInit() {
     this.downloadPath = API_URL + '/filedownload/files/';
-    this.bookService.findPartial(this.begin,this.length).subscribe(
+    this.bookService.findPartial(this.begin, this.length).subscribe(
       resp => {
         this.books = resp;
         this.bookService.bookServiceLoaded = true;
@@ -52,32 +52,51 @@ downloadPath:string;
 
   }
   findBySearch() {//axtaris edir
-    if(this.searchText===''){
-      this.bookService.findPartial(this.begin,this.length).subscribe(
-        resp=>{
-          this.books=resp;
+    window.scrollTo(0, 0);
+    this.begin=0;
+    if (this.searchText === '') {
+      
+      this.bookService.findPartial(this.begin, this.length).subscribe(
+        resp => {
+          this.books = resp;
         }
       );
 
-    }else{
-      this.bookService.search(this.searchText,this.begin,this.length).subscribe(
-        resp=>{
-          this.books=resp;
+    } else {
+      
+      this.bookService.search(this.searchText, this.begin, this.length).subscribe(
+        resp => {
+          this.books = resp;
         }
       );
     }
-    
+
 
   }
-  begin:number=0;
-  length:number=10;
-  onScroll(){//infinite scroll u aktiv edir
-    this.begin+=10;
-    this.bookService.findPartial(this.begin,this.length).subscribe(
-      resp => {
-        this.books.push(...resp);
-        
+  begin: number = 0;
+  length: number = 10;
+  onScroll() {//infinite scroll u aktiv edir
+    this.begin += 10;
+ 
+      if(this.searchText===''){
+        this.begin=0;
+        this.bookService.findPartial(this.begin, this.length).subscribe(
+          resp => {
+            this.books.push(...resp);
+  
+  
+          });
+      }else{
+        this.bookService.search(this.searchText,this.begin, this.length).subscribe(
+          resp => {
+            this.books.push(...resp);
+  
+  
+          });
+      }
+    
 
-      });
+
+
   }
 }

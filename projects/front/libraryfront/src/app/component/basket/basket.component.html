@@ -18,7 +18,7 @@
                 <td><img [src]="downloadPath+b.book.image" style="width: 40px;"></td>
                 <td>{{b.book.name}}</td>
                 <td>{{b.book.price}}</td>
-                <td><input type="number" [(ngModel)]="b.count" (input)="onCountChanged()"></td>
+                <td><input type="number" min="1" step="1" [(ngModel)]="b.count" (input)="onCountChanged()"></td>
                 <td>{{ceilling(b.book.price,b.count)}} AZN </td>
                 <td><button id="button" (click)="onDelete(counter)">X</button></td>
             </tr>

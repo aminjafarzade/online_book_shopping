@@ -12,7 +12,7 @@
 }
 #book:hover{
     cursor: pointer;
-    box-shadow:0 10px 40px 20px rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+    box-shadow:0 10px 40px 20px rgb(255, 112, 77), 0 6px 30px 0 rgb(255, 112, 77);
     background: white;
  
     cursor: pointer;

@@ -61,12 +61,12 @@ export class NewBookComponent implements OnInit {
     }
 
   }
-isHas:boolean=false;
+  isHas: boolean = false;
 
   errorMessage: string = '';
   saveBook() {//kitabi yadda saxlayir ve kitabin db de olub olmadigni arasdirir
     let books: Book[] = [];
-    
+
     this.bookService.findAll(this.userService.userId).subscribe(
       resp => {
         books = resp;
@@ -76,84 +76,88 @@ isHas:boolean=false;
             this.isHas = true;
             break;
           }
-    
-        }
-        
-    if(this.isHas){
-      alert("Bu Kitab artiq var");
-    }else{
-      if (this.userService.username === '') {
 
-      } else {
-        this.book.userId = this.userService.userId;
-        if (this.bookService.selectedBookId > 0) {
-  
-          if (this.image === undefined) {
-            this.bookService.findById(this.bookService.selectedBookId).subscribe(
-              resp => {
-  
-                console.log(resp);
-              }
-            );
-  
-            this.bookService.update(this.book).subscribe(
-              resp => {
-                alert('Uğurlu Redaktə');
-              }
-            );
-  
-  
+        }
+
+          if (this.userService.username === '') {
+
           } else {
-            this.uploadService.upload(this.image).subscribe(
-              resp => {
-                this.book.image = resp.image;
-  
-                this.bookService.update(this.book).subscribe(
-                  resp => { alert('Uğurlu Redaktə'); }
-                );
-  
-  
-              }
-  
-            );
-          }
-  
-  
-        } else {
-  
-          for (let index = 0; index < this.users.length; index++) {
-            if (this.users[index].username.includes(this.userService.username)) {
-              this.user = this.users[index];
-  
-              console.log(this.user);
-              break;
-  
-            }
-  
-          }
-          this.uploadService.upload(this.image).subscribe(
-            resp => {
-              this.book.image = resp.image;
-              this.bookService.addBook(this.book).subscribe(
-                resp => {
-                  alert('Uğurlu Əməliyyat');
-  
-  
-  
-                }
-              );
-            }
-  
-          );
-          this.errorMessage = 'Məlumatları Tam Yaz';
-        }
-      }
-    }
-      }
-    );
-    
+            this.book.userId = this.userService.userId;
+            if (this.bookService.selectedBookId > 0) {
 
-    
+              if (this.image === undefined) {
+                this.bookService.findById(this.bookService.selectedBookId).subscribe(
+                  resp => {
+
+                    console.log(resp);
+                  }
+                );
+
+                this.bookService.update(this.book).subscribe(
+                  resp => {
+                    alert('Uğurlu Redaktə');
+                  }
+                );
+
+
+              } else{
+                this.uploadService.upload(this.image).subscribe(
+                  resp => {
+                    this.book.image = resp.image;
+
+                    this.bookService.update(this.book).subscribe(
+                      resp => { alert('Uğurlu Redaktə'); }
+                    );
+
+
+                  }
+
+                );
+              }
+
+
+            } else if(!this.isHas){
+
+              for (let index = 0; index < this.users.length; index++) {
+                if (this.users[index].username.includes(this.userService.username)) {
+                  this.user = this.users[index];
+
+                  console.log(this.user);
+                  break;
+
+                }
+
+              }
+              this.uploadService.upload(this.image).subscribe(
+                resp => {
+                  this.book.image = resp.image;
+                  if (this.image === undefined) {
+                    this.errorMessage = "Sekil Secin";
+                  } else {
+                    this.bookService.addBook(this.book).subscribe(
+                      resp => {
+                        alert('Uğurlu Əməliyyat');
+
+
+
+                      }
+                    );
+                  }
+
+                }
+
+              );
+              this.errorMessage = 'Məlumatları Tam Yaz';
+            }else{
+              alert("Bu Kitab Artiq Var");
+            }
+          }
+        }
+      
+    );
+
+
+
   }
 
 }
