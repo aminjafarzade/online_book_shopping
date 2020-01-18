@@ -20,7 +20,7 @@ export class OrderPageComponent implements OnInit {
 
 
   ngOnInit() {
-    if(this.basketService.basketBooks.length>0){
+    if(this.basketService.basketBooks.length>0){//sifaris ucun kitab olub olmadigini arasdirir ve eger varsa onlarin umumi qiymetlerini tapir
       this.basketBooks = this.basketService.basketBooks;
       this.order.basketBooks = this.basketBooks;
       let totalPrice = 0;

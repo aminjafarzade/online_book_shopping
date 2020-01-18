@@ -30,7 +30,7 @@ export class SellingBookComponent implements OnInit {
 
 
     );
-    this.basketService.productCountChanged.subscribe(
+    this.basketService.productCountChanged.subscribe(//kitab sayi deyisende onu 200ms le gosterir
       resp => {
         this.showBasket = false;
         setTimeout(

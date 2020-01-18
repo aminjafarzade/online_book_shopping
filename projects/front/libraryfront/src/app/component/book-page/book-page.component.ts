@@ -38,7 +38,7 @@ export class BookPageComponent implements OnInit {
     this.username = this.userService.getUsername();
     this.downloadPath = API_URL + '/filedownload/files/';
 
-    this.userService.getAllUser().subscribe(
+    this.userService.getAllUser().subscribe(//butun userleri getirir
       resp => {
         this.users = resp;
 

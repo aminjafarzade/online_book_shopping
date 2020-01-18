@@ -22,6 +22,7 @@ export class BookTemplateComponent implements OnInit {
     this.downloadPath = API_URL + '/filedownload/files/';
     this.description=this.book.description;
     this.name=this.book.name;
+    //kitab adindaki simvol sayi 9 dan boyuk olduqda onlarin qabagina ... qoyur 
     if (this.book.name.length > 9) {
       this.name = this.book.name.substr(0, 9) + '...';
 

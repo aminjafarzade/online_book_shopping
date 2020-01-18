@@ -33,4 +33,5 @@
     </form>
     <h6 style="color: red;" *ngIf="userForm.invalid">{{errorMessage}}</h6><br>
     <h6 style="color: red;" *ngIf="isUsernameValidated()">{{usernameErrorMessage}}</h6>
+    <h6 style="color: red;" *ngIf="isEmailValidated()">{{emailErrorMessage}}</h6>
 </div>

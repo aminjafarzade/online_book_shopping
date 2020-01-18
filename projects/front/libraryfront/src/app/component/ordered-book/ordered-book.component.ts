@@ -31,7 +31,7 @@ export class OrderedBookComponent implements OnInit {
         processing: true
       };
 
-      this.orderService.findAll().subscribe(
+      this.orderService.findAll().subscribe(//butun orderleri getirir ve sonra onlari ugun userleri gore bolur
         resp => {
           this.orders = resp;
           
